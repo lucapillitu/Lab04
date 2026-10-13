@@ -1,10 +1,19 @@
 class LingottoFiere:
     def __init__(self, nome):
-        """Inizializza gli attributi e le strutture dati"""
-        # TODO
+        self.__nome = nome.strip()
+        self.stand = []
+        self.espositori = []
 
-    """Aggiungere setter e getter se necessari"""
-    # TODO
+
+    @property
+    def nome(self):
+        return self.__nome
+    @nome.setter
+    def nome(self, value):
+        if not value.strip():
+            raise ValueError("Nome non valido")
+        self.__nome = value.strip()
+
 
     def carica_file_dati(self, file_path):
         """Carica i dati (stand ed espositori) dal file"""
