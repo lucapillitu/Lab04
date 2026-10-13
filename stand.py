@@ -1,16 +1,15 @@
 from contextlib import nullcontext
-from os import WCONTINUED
 
 import espositore
 
 
 class Stand:
-    def __init__(self,codice,superficie, padiglione,prezzobase,espositore, disponibilita):
+    def __init__(self,codice,superficie, padiglione,prezzobase):
         self.__codice = codice
         self.__superficie = superficie
         self.__padiglione = padiglione
         self.__prezzobase = prezzobase
-        self.__espositore = ""
+        self.__espositore = None
         self.__disponibilita = True
 
     @property
@@ -60,3 +59,31 @@ class Stand:
         return nullcontext
 
 
+class StandPreseExtra(Stand):
+    def __init__(self, codice, superficie, padiglione, prezzobase, prese):
+        super().__init__(codice, superficie, padiglione, prezzobase)
+        self.__prese = prese
+
+    @property
+    def prese(self):
+        return self.__prese
+
+    @property
+    def prezzo(self):
+        return self.prezzobase * (1 + 0.07 * self.__prese)
+
+
+
+
+class StandPremium(Stand):
+    def __init__(self, codice, superficie, padiglione, prezzobase, posizione):
+        super().__init__(codice, superficie, padiglione, prezzobase)
+        self.__posizione = posizione
+
+    @property
+    def posizione(self):
+        return self.__posizione
+
+    @property
+    def prezzo(self):
+        return self.prezzobase * 1.30
