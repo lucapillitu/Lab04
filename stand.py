@@ -59,6 +59,8 @@ class Stand:
         return nullcontext
 
 
+#sottoclassi di stand :
+
 class StandPreseExtra(Stand):
     def __init__(self, codice, superficie, padiglione, prezzobase, prese):
         super().__init__(codice, superficie, padiglione, prezzobase)
