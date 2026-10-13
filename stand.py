@@ -74,6 +74,11 @@ class StandPreseExtra(Stand):
     def prezzo(self):
         return self.prezzobase * (1 + 0.07 * self.__prese)
 
+    def __str__(self):
+        stato = "Disponibile" if self.disponibilita else "Non disponibile"
+        return (f"{self.codice}: Prese Extra | {self.superficie} mq - Padiglione {self.padiglione} - "
+                f"Prezzo {self.prezzo:.2f}€ - Prese aggiuntive: {self.__prese} - {stato}")
+
 
 
 
