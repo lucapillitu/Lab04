@@ -1,3 +1,6 @@
+from contextlib import nullcontext
+from os import WCONTINUED
+
 import espositore
 
 
@@ -28,9 +31,7 @@ class Stand:
     @property
     def disponibilita(self):
         return self.__disponibilita
-    @codice.setter
-    def codice(self,codice):
-        self.__codice = codice
+
     @superficie.setter
     def superficie(self,superficie):
         self.__superficie = superficie
@@ -46,5 +47,16 @@ class Stand:
     @disponibilita.setter
     def disponibilita(self,disponibilita):
         self.__disponibilita = disponibilita
+
+    def __str__(self):
+        return nullcontext
+
+    def __repr__(self):
+        return nullcontext
+    def __eq__(self, other):
+        return nullcontext
+
+    def __ne__(self, other):
+        return nullcontext
 
 
