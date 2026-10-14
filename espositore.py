@@ -48,7 +48,7 @@ class Espositore:
     def __eq__(self, other):
         # due espositori sono uguali se hanno lo stesso codice
         if not isinstance(other, Espositore):
-            return NotImplemented
+            return ValueError
         return self.__codice == other.codice
 
     def __hash__(self):
