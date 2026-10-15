@@ -36,6 +36,8 @@ class LingottoFiere:
                 elif line[0].startswith("ES") and len(line) == 3:
                     self.espositori.append(Espositore(line[0],line[1],line[2]))
 
+
+
     def assegna_stand_a_espositore(self, codice_stand, codice_espositore):
         """Associa uno stand a un espositore"""
         # TODO

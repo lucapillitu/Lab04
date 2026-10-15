@@ -17,10 +17,12 @@ def main():
     while True:
         scelta = menu()
 
+#1
         if scelta == "1":
             nuovo_nome = input("Inserisci il nuovo nome del centro fieristico: ")
-            # TODO: Aggiorna il nome del centro fieristico
+            lingotto.nome(nuovo_nome)
 
+#2
         elif scelta == "2":
             file_path = "dati_lingotto.csv"
             try:
@@ -29,6 +31,7 @@ def main():
             except FileNotFoundError:
                 print("File non trovato.")
 
+#3
         elif scelta == "3":
             codice_stand = input("Codice stand: ")
             codice_espositore = input("Codice espositore: ")
@@ -38,16 +41,19 @@ def main():
             except Exception as e:
                 print(f"Errore: {e}")
 
+#4
         elif scelta == "4":
             print("\n--- Elenco espositori ---")
             lingotto.elenca_espositori()
 
+#5
         elif scelta == "5":
             stand_ordinati = lingotto.stand_ordinati_per_prezzo()
             print("\n--- Stand ordinati per prezzo ---")
             for s in stand_ordinati:
                 print(s)
 
+#6
         elif scelta == "6":
             print("Uscita dal programma.")
             break
