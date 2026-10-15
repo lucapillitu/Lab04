@@ -20,7 +20,11 @@ def main():
 #1f
         if scelta == "1":
             nuovo_nome = input("Inserisci il nuovo nome del centro fieristico: ")
-            lingotto.nome(nuovo_nome)
+            try:
+                lingotto.nome = nuovo_nome
+                print("Nome modificato.")
+            except ValueError as e:
+                print(f"Errore: {e}")
 
 #2f
         elif scelta == "2":

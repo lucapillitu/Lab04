@@ -6,8 +6,8 @@ from espositore import Espositore
 class LingottoFiere:
     def __init__(self, nome):
         self.__nome = nome.strip()
-        self.stand = []
-        self.espositori = []
+        self.stand = None
+        self.espositori = None
 
 
     @property
@@ -22,6 +22,8 @@ class LingottoFiere:
 #caricamento da file
     def carica_file_dati(self, file_path):
         with open(file_path, "r") as file:
+            self.stand = []
+            self.espositori = []
 
             for l in file:
                 line = l.strip().split(",")
