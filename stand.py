@@ -7,6 +7,7 @@ class Stand:
         self.__espositore = None
         self.__disponibilita = True
 
+
     @property
     def codice(self):
         return self.__codice
@@ -56,8 +57,6 @@ class Stand:
     def disponibilita(self, disponibilita):
         self.__disponibilita = disponibilita
 
-    def stato(self):
-        return "Disponibile" if self.__disponibilita else "Non disponibile"
 
     def __str__(self):
         return {f"{self.codice}: Standard | {self.superficie} mq - Padiglione {self.padiglione} - "
@@ -72,10 +71,7 @@ class Stand:
             return ValueError
         return self.codice == other.codice
 
-
-    def __lt__(self, other):
-        # usato da sorted(): ordina per prezzo finale
-        return self.prezzo < other.prezzo
+#ordinamento per rpezzo :  per_prezzo = sorted(lista, key=lambda e: e.prezzo, reverse=True)
 
 
 # sottoclassi di Stand
