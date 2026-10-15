@@ -54,15 +54,19 @@ class LingottoFiere:
         s = self.cerca_stand(codice_stand)
         e = self.cerca_espositore(codice_espositore)
 
-        if s.espositore is None:
-            s.espositore = e
-        else :
+        if s.espositore is not None:
             raise ValueError(f"Stand {codice_stand} occupato")
+        if e.stand is not None:
+            raise ValueError(f"Espositore {codice_espositore} ha già uno stand")
+
+        s.espositore = e
+        e.stand = s
 
 
     def elenca_espositori(self):
-        """Stampa l'elenco degli espositori mostrando, per ognuno, lo stand a cui è associato, quando applicabile """
-        # TODO
+        for e in self.espositori:
+            print(e.__str__())
+
 
     def stand_ordinati_per_prezzo(self):
         """Restituisce la lista ordinata degli stand in base al prezzo"""
