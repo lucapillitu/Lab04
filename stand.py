@@ -90,7 +90,7 @@ class StandPreseExtra(Stand):
         return self.__prese
 
     @property
-    def prezzo(self):
+    def prezzofinale(self):
         return self.prezzobase * (1 + 0.07 * self.__prese)
 
     def __str__(self):
@@ -112,7 +112,7 @@ class StandPremium(Stand):
         return self.__posizione
 
     @property
-    def prezzo(self):
+    def prezzofinale(self):
         return self.prezzobase * 1.30
 
     def __str__(self):
