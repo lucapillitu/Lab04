@@ -62,7 +62,6 @@ class Stand:
             return ValueError
         return self.codice == other.codice
 
-#ordinamento per rpezzo :  per_prezzo = sorted(lista, key=lambda e: e.prezzo, reverse=True)
 
 
 # sottoclassi di Stand
@@ -77,7 +76,7 @@ class StandPreseExtra(Stand):
         return self.__prese
 
     @property
-    def prezzofinale(self):
+    def prezzo(self):
         return self.prezzobase * (1 + 0.07 * self.__prese)
 
     def __str__(self):
@@ -99,7 +98,7 @@ class StandPremium(Stand):
         return self.__posizione
 
     @property
-    def prezzofinale(self):
+    def prezzo(self):
         return self.prezzobase * 1.30
 
     def __str__(self):

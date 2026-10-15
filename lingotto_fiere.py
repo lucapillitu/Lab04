@@ -1,3 +1,4 @@
+import stand
 from stand import Stand,StandPremium,StandPreseExtra
 from espositore import Espositore
 
@@ -69,6 +70,6 @@ class LingottoFiere:
 
 
     def stand_ordinati_per_prezzo(self):
-        """Restituisce la lista ordinata degli stand in base al prezzo"""
-        # TODO
+        return sorted(self.stand, key=lambda s: s.prezzo, reverse=False)
+
 
