@@ -50,17 +50,11 @@ class Stand:
 
 
     def __str__(self):
-        return {f"{self.codice}: Standard | {self.superficie} mq - Padiglione {self.padiglione} - "
-                f"Prezzo {self.prezzo:.2f}€ - espositore : {self.espositore}"}
+        return (f"{self.codice}: Standard | {self.superficie} mq - Padiglione {self.padiglione} - "
+                f"Prezzo {self.prezzo:.2f}€ - espositore : {self.espositore}")
 
     def __repr__(self):
         return f"Stand({self.codice!r}, {self.superficie}, {self.padiglione}, {self.prezzobase})"
-
-    def __eq__(self, other):
-        # due stand sono uguali se hanno lo stesso codice
-        if not isinstance(other, Stand):
-            return ValueError
-        return self.codice == other.codice
 
 
 
@@ -102,8 +96,8 @@ class StandPremium(Stand):
         return self.prezzobase * 1.30
 
     def __str__(self):
-        return {f"{self.codice}: Premium | {self.superficie} mq - Padiglione {self.padiglione} - "
-                f"Prezzo {self.prezzo:.2f}€ - Posizione: {self.__posizione} - espositore {self.espositore}"}
+        return (f"{self.codice}: Premium | {self.superficie} mq - Padiglione {self.padiglione} - "
+                f"Prezzo {self.prezzo:.2f}€ - Posizione: {self.__posizione} - espositore {self.espositore}")
 
     def __repr__(self):
         return (f"StandPremium({self.codice!r}, {self.superficie}, {self.padiglione}, "
