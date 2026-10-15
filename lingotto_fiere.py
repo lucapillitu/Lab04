@@ -16,8 +16,17 @@ class LingottoFiere:
 
 
     def carica_file_dati(self, file_path):
-        """Carica i dati (stand ed espositori) dal file"""
-        # TODO
+        with open(file_path, "r") as file:
+            for l in file:
+                line = l.strip()
+                if not line:
+                    continue
+                if l[0].startswith("ST"):
+                    continue
+                elif l[0].startswith("ES"):
+                    continue
+                else:
+                    continue
 
     def assegna_stand_a_espositore(self, codice_stand, codice_espositore):
         """Associa uno stand a un espositore"""
