@@ -18,7 +18,7 @@ class LingottoFiere:
             raise ValueError("Nome non valido")
         self.__nome = value.strip()
 
-
+#caricamento da file
     def carica_file_dati(self, file_path):
         with open(file_path, "r") as file:
 
@@ -36,11 +36,29 @@ class LingottoFiere:
                 elif line[0].startswith("ES") and len(line) == 3:
                     self.espositori.append(Espositore(line[0],line[1],line[2]))
 
+#metodi per associare stand a espositore
+    def cerca_stand(self, codice):
+        for s in self.stand:
+            if s.codice == codice:
+                return s
+        raise ValueError(f"Stand {codice} non trovato")
 
+    def cerca_espositore(self, codice):
+        for e in self.espositori:
+            if e.codice == codice:
+                return e
+        raise ValueError(f"Espositore {codice} non trovato")
 
     def assegna_stand_a_espositore(self, codice_stand, codice_espositore):
-        """Associa uno stand a un espositore"""
-        # TODO
+
+        s = self.cerca_stand(codice_stand)
+        e = self.cerca_espositore(codice_espositore)
+
+        if s.espositore is None:
+            s.espositore = e
+        else :
+            raise ValueError(f"Stand {codice_stand} occupato")
+
 
     def elenca_espositori(self):
         """Stampa l'elenco degli espositori mostrando, per ognuno, lo stand a cui è associato, quando applicabile """
@@ -49,3 +67,4 @@ class LingottoFiere:
     def stand_ordinati_per_prezzo(self):
         """Restituisce la lista ordinata degli stand in base al prezzo"""
         # TODO
+

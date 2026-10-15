@@ -33,8 +33,8 @@ def main():
 
 #3
         elif scelta == "3":
-            codice_stand = input("Codice stand: ")
-            codice_espositore = input("Codice espositore: ")
+            codice_stand = input("Codice stand: ").upper()
+            codice_espositore = input("Codice espositore: ").upper()
             try:
                 lingotto.assegna_stand_a_espositore(codice_stand, codice_espositore)
                 print("Stand assegnato con successo.")

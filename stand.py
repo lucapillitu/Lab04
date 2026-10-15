@@ -5,8 +5,6 @@ class Stand:
         self.__padiglione = padiglione
         self.__prezzobase = prezzobase
         self.__espositore = None
-        self.__disponibilita = True
-
 
     @property
     def codice(self):
@@ -49,18 +47,11 @@ class Stand:
     def espositore(self, espositore):
         self.__espositore = espositore
 
-    @property
-    def disponibilita(self):
-        return self.__disponibilita
-
-    @disponibilita.setter
-    def disponibilita(self, disponibilita):
-        self.__disponibilita = disponibilita
 
 
     def __str__(self):
         return {f"{self.codice}: Standard | {self.superficie} mq - Padiglione {self.padiglione} - "
-                f"Prezzo {self.prezzo:.2f}€ - {self.stato()}"}
+                f"Prezzo {self.prezzo:.2f}€ - espositore : {self.espositore}"}
 
     def __repr__(self):
         return f"Stand({self.codice!r}, {self.superficie}, {self.padiglione}, {self.prezzobase})"
@@ -91,7 +82,7 @@ class StandPreseExtra(Stand):
 
     def __str__(self):
         return (f"{self.codice}: Prese Extra | {self.superficie} mq - Padiglione {self.padiglione} - "
-                f"Prezzo {self.prezzo:.2f}€ - Prese aggiuntive: {self.__prese} - {self.stato()}")
+                f"Prezzo {self.prezzo:.2f}€ - Prese aggiuntive: {self.__prese} - espositore : {self.espositore}")
 
     def __repr__(self):
         return (f"StandPreseExtra({self.codice!r}, {self.superficie}, {self.padiglione}, "
@@ -113,7 +104,7 @@ class StandPremium(Stand):
 
     def __str__(self):
         return {f"{self.codice}: Premium | {self.superficie} mq - Padiglione {self.padiglione} - "
-                f"Prezzo {self.prezzo:.2f}€ - Posizione: {self.__posizione} - {self.stato()}"}
+                f"Prezzo {self.prezzo:.2f}€ - Posizione: {self.__posizione} - espositore {self.espositore}"}
 
     def __repr__(self):
         return (f"StandPremium({self.codice!r}, {self.superficie}, {self.padiglione}, "
