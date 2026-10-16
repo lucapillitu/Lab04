@@ -49,9 +49,3 @@ class Espositore:
 
     def __repr__(self):
         return f"Espositore({self.__codice!r}, {self.__nome!r}, {self.__cognome!r})"
-
-    def __eq__(self, other):
-        # due espositori sono uguali se hanno lo stesso codice
-        if not isinstance(other, Espositore):#controlla siano lo stesso tipo di oggetto py
-            return ValueError
-        return self.__codice == other.codice
